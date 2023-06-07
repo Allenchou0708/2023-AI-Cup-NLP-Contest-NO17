@@ -44,8 +44,20 @@
 
 5.[訓練]接著執行2-2,2-3-2後會生成model (2-3-1可以跳過)
 
-6.[生成下一階段資料]2-4中填入Part2模型名稱(ckpt_name)「F1_0.7573400417066631_Precision0.7638888888888888_model.2670.pt」與路徑(CKPT_DIR)「e20_bs64_1e-05_neg0.115_top5_data4_prob0.75_yes_yes_no_yes」導入Part2訓練好的模型(若是缺少模型，可以去<<資料夾>>中移入並建立適當的資料夾)，接著生成兩個檔案(Train) :  train_doc5sent5_data4_e20_bs64_1e-05_neg0.1096_top5_data4_prob0.75_yes_yes_no_yes.jsonl與(Valid) :  dev_doc5sent5_data4_e20_bs64_1e-05_neg0.1096_top5_data4_prob0.75_yes_yes_no_yes.jsonl
+6.[生成下一階段資料]2-4中填入Part2模型名稱(ckpt_name)「F1_0.7573400417066631_Precision0.7638888888888888_model.2670.pt」與路徑(CKPT_DIR)「checkpoints/sent_retrieva/e20_bs64_1e-05_neg0.115_top5_data4_prob0.75_yes_yes_no_yes」導入Part2訓練好的模型(若是缺少模型，可以去<<資料夾>>中移入並建立適當的資料夾)，接著生成兩個檔案(Train) :  train_doc5sent5_data4_e20_bs64_1e-05_neg0.1096_top5_data4_prob0.75_yes_yes_no_yes.jsonl與(Valid) :  dev_doc5sent5_data4_e20_bs64_1e-05_neg0.1096_top5_data4_prob0.75_yes_yes_no_yes.jsonl
 
-7.[測試]2-5中Data_From_Part_1_Test填入4，填入Part2模型名稱(DIR_FOR_MODEL)「F1_0.7573400417066631_Precision0.7638888888888888_model.2670.pt」與路徑(ckpt_name)「e20_bs64_1e-05_neg0.115_top5_data4_prob0.75_yes_yes_no_yes」導入Part2模型，接著生成下一階段的Testing檔案「test_doc5sent5_data4_e20_bs64_1e-05_neg0.115_top5_data4_prob0.75_yes_yes_no_yes.jsonl」
+7.[測試]2-5中Data_From_Part_1_Test填入4，填入Part2模型名稱(DIR_FOR_MODEL)「F1_0.7573400417066631_Precision0.7638888888888888_model.2670.pt」與路徑(ckpt_name)「checkpoints/sent_retrieva/e20_bs64_1e-05_neg0.115_top5_data4_prob0.75_yes_yes_no_yes」導入Part2模型，接著生成下一階段的Testing檔案「test_doc5sent5_data4_e20_bs64_1e-05_neg0.115_top5_data4_prob0.75_yes_yes_no_yes.jsonl」
 
 ### Part3
+
+1. Use_Data_From_Part_1請填入4 (for training與輸出預測結果)，Par2_Number_of_Sent = "5"，Part2_Model_Path = "checkpoints/sent_retrieval/e20_bs64_1e-05_neg0.115_top5_data4_prob0.75_yes_yes_no_yes"，SEP_NUMBER = 0
+
+2.確保/content/drive/MyDrive/NCKU-AICUP2023-baseline/data內有train_doc5sent5_data4_e20_bs64_1e-05_neg0.1096_top5_data4_prob0.75_yes_yes_no_yes.jsonl與(Valid) :  dev_doc5sent5_data4_e20_bs64_1e-05_neg0.1096_top5_data4_prob0.75_yes_yes_no_yes.jsonl檔案(若是沒有可以從<<資料夾>>引入)
+
+3.[訓練]填入超參數 : Epoch 20,Batch_Size 24(Training與Test都是),Learning Rate 1e-05,MAX_SEQ_LEN 256,EVIDENCE_TOPK 5，接著執行3-2,3-3-2後會生成model (3-3-1可以跳過)
+
+7.[測試]Use_Data_From_Part_1請填入4 (for training與輸出預測結果)，Par2_Number_of_Sent = "5"，Part2_Model_Path = "checkpoints/sent_retrieval/e20_bs64_1e-05_neg0.115_top5_data4_prob0.75_yes_yes_no_yes"，EVIDENCE_TOPK = 5，CKPT_DIR = "checkpoints/claim_verification/e20_bs25_1e-05_top5_data4_SEP0" ,MODEL_NAME = bert-base-chinese,ckpt_name = val_acc=0.5895_model.2280.pt,
+
+8.確認檔案./data/test_doc5sent5_data4_e20_bs64_1e-05_neg0.115_top5_data4_prob0.75_yes_yes_no_yes.jsonl存在，並執行完3-4，得到檔案submission_e20_bs64_1e-05_neg0.1096_top5_data4_prob0.75_yes_yes_no_yes.jsonl
+
+
