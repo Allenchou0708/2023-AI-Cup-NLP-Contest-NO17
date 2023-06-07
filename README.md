@@ -34,18 +34,18 @@
 
 ### Part2
 
-1. Use_Data_From_Part_1請填入4(for training與輸出預測結果)
+1. Use_Data_From_Part_1請填入4 (for training與輸出預測結果)
 
 2.確保/content/drive/MyDrive/NCKU-AICUP2023-baseline/data內有train_doc5_data4.jsonl、public_train.jsonl(經過dataset1與dataset2合併)、private+public_test_data.jsonl檔案和/wiki-pages資料夾(若是沒有可以從<<資料夾>>引入)
 
-3.填入超參數
+3.填入超參數 : Epoch 20,Batch_Size 64(Training與Test都是),Learning Rate 1e-05,Top 5,Sent_Seperate "yes",Comma "yes","Period" "no","Random_Choose" "yes",Prob_Limit 0.75, Testing_or_not "no"
 
-4.修改NEGATIVE_RATIO使得Label 0與Label 1樣本數相近
+4.修改NEGATIVE_RATIO使得Label 0與Label 1樣本數相近 (大約0.115)
 
-5.執行完程式碼2-3後會生成model
+5.[訓練]接著執行2-2,2-3-2後會生成model (2-3-1可以跳過)
 
-6.2-4中填入Part2模型名稱與路徑導入Part2模型，接著生成兩個檔案
+6.[生成下一階段資料]2-4中填入Part2模型名稱(ckpt_name)「F1_0.7573400417066631_Precision0.7638888888888888_model.2670.pt」與路徑(CKPT_DIR)「e20_bs64_1e-05_neg0.115_top5_data4_prob0.75_yes_yes_no_yes」導入Part2訓練好的模型(若是缺少模型，可以去<<資料夾>>中移入並建立適當的資料夾)，接著生成兩個檔案(Train) :  train_doc5sent5_data4_e20_bs64_1e-05_neg0.1096_top5_data4_prob0.75_yes_yes_no_yes.jsonl與(Valid) :  dev_doc5sent5_data4_e20_bs64_1e-05_neg0.1096_top5_data4_prob0.75_yes_yes_no_yes.jsonl
 
-7.2-5中選用檔案4，填入Part2模型名稱與路徑導入Part2模型，接著生成
+7.[測試]2-5中Data_From_Part_1_Test填入4，填入Part2模型名稱(DIR_FOR_MODEL)「F1_0.7573400417066631_Precision0.7638888888888888_model.2670.pt」與路徑(ckpt_name)「e20_bs64_1e-05_neg0.115_top5_data4_prob0.75_yes_yes_no_yes」導入Part2模型，接著生成下一階段的Testing檔案「test_doc5sent5_data4_e20_bs64_1e-05_neg0.115_top5_data4_prob0.75_yes_yes_no_yes.jsonl」
 
 ### Part3
