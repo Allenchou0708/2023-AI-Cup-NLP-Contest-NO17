@@ -4,9 +4,11 @@
 
 使用環境Google Colab
 
-使用程式碼 <<程式碼名>>
+資源連結 : https://drive.google.com/drive/folders/1YROgftReHRzOV8TWCyQfqeixE9c0VET7?usp=sharing
 
-並將附屬資料夾NCKU-AICUP2023-baseline上傳到雲端硬碟的根目錄
+使用程式碼 main_code/full_pipeline_final_season_Part1_(Bert)_5_31_(6)_already_test.ipynb
+
+並將附屬資料夾(執行環境中的NCKU-AICUP2023-baseline)上傳到雲端硬碟的根目錄
 
 ### Part0
 
