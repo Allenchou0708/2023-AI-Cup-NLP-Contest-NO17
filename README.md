@@ -1,4 +1,4 @@
-# NLP_Champion
+# 2023 AI Cup NLP Contest (# 17/300)
 
 ### 前置
 
